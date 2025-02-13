@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractuarLuz : MonoBehaviour
 {
     public GameObject luzUI; // Canvas
+    public GameObject numeroUI; // numero
     public Light luz; // Luz
 
     private bool enZona = false; // ¿Está el jugador dentro de la zona?
@@ -12,6 +13,7 @@ public class InteractuarLuz : MonoBehaviour
     void Start()
     {
         luzUI.SetActive(false); // Inicialmente no mostrar el canvas
+        numeroUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -39,6 +41,7 @@ public class InteractuarLuz : MonoBehaviour
         if (enZona && Input.GetKeyDown(KeyCode.E)) // Si está en la zona y se presiona la tecla "E"
         {
             luz.enabled = !luz.enabled; // Alterna el estado de la luz
+            numeroUI.SetActive(!luz.enabled);
         }
     }
 }

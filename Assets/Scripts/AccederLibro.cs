@@ -7,9 +7,12 @@ public class AccederLibro : MonoBehaviour
     public GameObject CanvaLibro; // Canvas de la pizarra
     public GameObject Libro; // Cámara de la pizarra
     public GameObject firstPersonController; // FPS Controller
+    public GameObject textoLeer;
+    public GameObject textoPuzles;
 
     private bool enZona = false;
     private bool enPizarra = false;
+    private bool primeraLectura = false;
 
     void Start()
     {
@@ -61,6 +64,12 @@ public class AccederLibro : MonoBehaviour
 
         if (enPizarra)
         {
+            primeraLectura = true;
+            if(primeraLectura)
+            {
+                textoLeer.SetActive(false);
+                textoPuzles.SetActive(true);
+            }
             firstPersonController.SetActive(false);
             Libro.SetActive(true);
 
