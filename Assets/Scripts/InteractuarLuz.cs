@@ -5,8 +5,10 @@ using UnityEngine;
 public class InteractuarLuz : MonoBehaviour
 {
     public GameObject luzUI; // Canvas
-    public GameObject numeroUI; // numero
-    public Light luz; // Luz
+    public GameObject numeroUI; // Número
+    public GameObject luz; // GameObject que representa la luz
+    public GameObject lamparas;
+    public AudioSource sonidoLuz; // AudioSource para el sonido
 
     private bool enZona = false; // ¿Está el jugador dentro de la zona?
 
@@ -16,6 +18,8 @@ public class InteractuarLuz : MonoBehaviour
         numeroUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        lamparas.SetActive(false);
+        sonidoLuz.Stop();
     }
 
     void OnTriggerEnter(Collider other)
@@ -40,8 +44,16 @@ public class InteractuarLuz : MonoBehaviour
     {
         if (enZona && Input.GetKeyDown(KeyCode.E)) // Si está en la zona y se presiona la tecla "E"
         {
-            luz.enabled = !luz.enabled; // Alterna el estado de la luz
-            numeroUI.SetActive(!luz.enabled);
+            bool luzActiva = luz.activeSelf; // Verifica si el GameObject de la luz está activo
+            luz.SetActive(!luzActiva); // Activa o desactiva la luz
+            lamparas.SetActive(luzActiva);
+
+            numeroUI.SetActive(luzActiva); // Muestra el número si la luz está apagada
+
+            if (sonidoLuz != null) // Verifica si hay un AudioSource asignado
+            {
+                sonidoLuz.Play(); // Reproduce el sonido
+            }
         }
     }
 }
