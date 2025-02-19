@@ -42,3 +42,8 @@ Aquí tienes el boceto inicial del diseño del Escape Room:
 - **Mirar**: Mueve el ratón para mirar alrededor.
 - **Interactuar**: Haz clic izquierdo para interactuar con los objetos en el cuarto.
 - **Dibujar en el plano**: Haz clic izquierdo para "dibujar" en el plano de coordenadas.
+
+## Descargas 💾
+
+- [Descargar para Windows](https://drive.google.com/file/d/19s70ZIVIDYPM6_JgGksbBG_FyMeDR9VM/view?usp=sharing)
+- [Descargar para Ubuntu](https://drive.google.com/file/d/1QuEk_GYMGBaZduRvZlG0bh-oFFse4CbC/view?usp=sharing)
